@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FizzBuzz
 {
-    internal class Calculator
+    internal class FizzBuzz
     {
         private const string FIZZ = "Fizz";
         private const string BUZZ = "Buzz";

@@ -10,12 +10,12 @@ namespace FizzBuzz
     [TestFixture]
     internal class FizzBuzzTests
     {
-        private Calculator _calculator;
+        private FizzBuzz _fizzBuzz;
 
         [SetUp]
         public void SetUp()
         {
-            _calculator = new Calculator();
+            _fizzBuzz = new FizzBuzz();
         }
 
         [TestCase(1, "1")]
@@ -29,7 +29,7 @@ namespace FizzBuzz
         [TestCase(10, "Buzz")]
         public void NumberOne_Entered_Returns_One(int number, string expected)
         {
-            var result = _calculator.Process(number);
+            var result = _fizzBuzz.Process(number);
 
             Assert.AreEqual(expected, result);
         }
