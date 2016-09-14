@@ -1,44 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FizzBuzz
+﻿namespace FizzBuzz
 {
     internal class FizzBuzz
     {
         private const string FIZZ = "Fizz";
         private const string BUZZ = "Buzz";
 
-        public string Process(int i)
+        public string Process(int number)
         {
-            if (IsMultipleOfThree(i))
+            return $"{GetFizzBuzz(number)}";
+        }
+
+        private static string GetFizzBuzz(int number)
+        {
+            if (IsFizz(number))
             {
-                if (IsMultipleOfFive(i))
+                if (IsBuzz(number))
                 {
                     return $"{FIZZ}{BUZZ}";
                 }
-
                 return FIZZ;
             }
-
-            if (IsMultipleOfFive(i))
-            {
-                return BUZZ;
-            }
-
-            return i.ToString();
+            return IsBuzz(number) ? BUZZ : number.ToString();
         }
 
-        private static bool IsMultipleOfFive(int i)
+        private static bool IsBuzz(int number)
         {
-            return i % 5 == 0;
+            return number % 5 == 0;
         }
 
-        private static bool IsMultipleOfThree(int i)
+        private static bool IsFizz(int number)
         {
-            return i % 3 == 0;
+            return number % 3 == 0;
         }
     }
 }
