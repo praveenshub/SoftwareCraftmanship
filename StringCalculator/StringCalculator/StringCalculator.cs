@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace StringCalculatorTDD
 {
@@ -6,16 +8,15 @@ namespace StringCalculatorTDD
     {
         public static int Add(string numbers)
         {
-            if (numbers.Length == 1)
-                return int.Parse(numbers);
+            if (String.IsNullOrEmpty(numbers))
+                return 0;
+            var args = GetIntArrayFromCommaDelimitedString(numbers);
+            return args.Sum(x => x);
+        }
 
-            if (numbers.Length == 3)
-            {
-                var numbersToParse = numbers.Split(',');
-                return numbersToParse.Sum(i => int.Parse(i));
-            }
-
-            return 0;
+        private static IEnumerable<int> GetIntArrayFromCommaDelimitedString(string numbers)
+        {
+            return numbers.Split(',').Select(int.Parse);
         }
     }
 }

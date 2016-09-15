@@ -35,12 +35,13 @@ namespace StringCalculatorTDDTests
             result.Should().Be(expectedSum);
         }
 
-        [Test]
-        public void ReturnsIntegerRepresentationOfSumGivenManyNumbersAsString()
+        [TestCase("1,2,3", 6)]
+        [TestCase("0,1,2,3,4,555", 565)]
+        public void ReturnsIntegerRepresentationOfSumGivenManyNumbersAsString(string numbers, int expectedSum)
         {
-            var result = StringCalculator.Add("1,2,3");
+            var result = StringCalculator.Add(numbers);
 
-            result.Should().Be(6);
+            result.Should().Be(expectedSum);
         }
     }
 }
