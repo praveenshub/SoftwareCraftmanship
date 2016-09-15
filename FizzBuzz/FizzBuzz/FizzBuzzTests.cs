@@ -22,6 +22,7 @@ namespace FizzBuzz
         [TestCase(6, "Fizz")]
         [TestCase(9, "Fizz")]
         [TestCase(10, "Buzz")]
+        [TestCase(99,"Fizz")]
         public void NumberOne_Entered_Returns_One(int number, string expected)
         {
             var result = _fizzBuzz.Process(number);
