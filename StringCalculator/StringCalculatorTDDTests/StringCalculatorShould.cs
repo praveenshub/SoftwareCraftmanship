@@ -43,5 +43,23 @@ namespace StringCalculatorTDDTests
 
             result.Should().Be(expectedSum);
         }
+
+        [Test]
+        public void ReturnsIntegerRepresentationOfSumGivenManyNumbersWithNewLineAsString()
+        {
+            var result = StringCalculator.Add("1\n2,3");
+
+            result.Should().Be(6);
+        }
+     
+        
+        [Test]
+        public void ReturnsIntegerRepresentationOfSumGivenAnyDelimitedString()
+        {
+            var result = StringCalculator.Add("//;\n1;2");
+
+            result.Should().Be(3);
+        }
+
     }
 }

@@ -16,7 +16,16 @@ namespace StringCalculatorTDD
 
         private static IEnumerable<int> GetIntArrayFromCommaDelimitedString(string numbers)
         {
+            numbers = ReplaceNonCommaDelimitedNumbersWithComma(numbers);
             return numbers.Split(',').Select(int.Parse);
+        }
+
+        private static string ReplaceNonCommaDelimitedNumbersWithComma(string numbers)
+        {
+            numbers = numbers.Replace("//;\n", "");
+            numbers = numbers.Replace("\n", ",");
+            numbers = numbers.Replace(";", ",");
+            return numbers;
         }
     }
 }
