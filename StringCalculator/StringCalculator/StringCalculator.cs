@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace StringCalculatorTDD
 {
@@ -22,9 +23,23 @@ namespace StringCalculatorTDD
 
         private static string ReplaceNonCommaDelimitedNumbersWithComma(string numbers)
         {
-            numbers = numbers.Replace("//;\n", "");
+            numbers = ReplaceDelimitersWithComma(numbers);
+
             numbers = numbers.Replace("\n", ",");
-            numbers = numbers.Replace(";", ",");
+            return numbers;
+        }
+
+        private static string ReplaceDelimitersWithComma(string numbers)
+        {
+            const string pattern = "^//(.)\n";
+            var regex = new Regex(pattern);
+            var match = regex.Match(numbers);
+            if (match.Success)
+            {
+                var delimiter = match.Groups[1].Value;
+                numbers = regex.Replace(numbers, string.Empty);
+                numbers = numbers.Replace(delimiter, ",");
+            }
             return numbers;
         }
     }
