@@ -36,11 +36,19 @@ namespace BowlingGameTDDTests
         [TestCase("-1|--|--|--|--|--|--|--|--|--||", 1)]
         [TestCase("-2|--|--|--|--|--|--|--|--|--||", 2)]
         [TestCase("-3|--|--|--|--|--|--|--|--|--||", 3)]
-        public void ReturnsScore_GivenPlayerKnocksPinsInTheSecondShotOfTheirFirstFrameOnly(string game, int expectedScore)
+        public void ReturnScore_GivenPlayerKnocksPinsInTheSecondShotOfTheirFirstFrameOnly(string game, int expectedScore)
         {
             var score = BowlingGameCalculator.Play(game);
 
             score.Should().Be(expectedScore);
+        }
+
+        [Test]
+        public void ReturnScore_GivenPlayerGetsAStrikeOnTheSecondShotOfTheirFirstFrameOnly()
+        {
+            var score = BowlingGameCalculator.Play("-X|--|--|--|--|--|--|--|--|--||");
+
+            score.Should().Be(10);
         }
     }
 }

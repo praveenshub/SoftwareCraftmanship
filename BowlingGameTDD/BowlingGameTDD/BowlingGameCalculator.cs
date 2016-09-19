@@ -7,7 +7,7 @@
             var firstShot = game.Substring(0, 1);
             var secondShot = game.Substring(1, 1);
 
-            if (firstShot == "X")
+            if (firstShot == "X" || (firstShot == "-" && secondShot == "X"))
                 return 10;
 
             if(firstShot == "-" && secondShot != "-")
