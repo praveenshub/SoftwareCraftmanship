@@ -24,5 +24,21 @@ namespace BowlingGameTDDTests
 
             score.Should().Be(expectedScore);
         }
+
+        [Test]
+        public void ReturnScore_GivenPlayerGetsAStrikeOnTheFirstShot()
+        {
+            var score = BowlingGameCalculator.Play("X|--|--|--|--|--|--|--|--|--||");
+
+            score.Should().Be(10);
+        }
+
+        [Test]
+        public void ReturnsScore_GivenPlayerKnocksPinsOnlyInTheSecondShotOfTheFirstFrame()
+        {
+            var score = BowlingGameCalculator.Play("-1|--|--|--|--|--|--|--|--|--||");
+
+            score.Should().Be(1);
+        }
     }
 }
