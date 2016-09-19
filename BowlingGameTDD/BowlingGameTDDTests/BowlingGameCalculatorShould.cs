@@ -34,11 +34,19 @@ namespace BowlingGameTDDTests
         }
 
         [Test]
-        public void ReturnsScore_GivenPlayerKnocksPinsOnlyInTheSecondShotOfTheFirstFrame()
+        public void ReturnsScore_GivenPlayerKnocksOnePinInTheSecondShotOfTheFirstFrame()
         {
             var score = BowlingGameCalculator.Play("-1|--|--|--|--|--|--|--|--|--||");
 
             score.Should().Be(1);
+        }
+
+        [Test]
+        public void ReturnScore_GivenPlayerKnocksTwoPinsInTheSecondShotOfTheFirstFrame()
+        {
+            var score = BowlingGameCalculator.Play("-2|--|--|--|--|--|--|--|--|--||");
+
+            score.Should().Be(2);
         }
     }
 }

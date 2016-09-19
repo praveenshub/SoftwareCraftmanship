@@ -7,6 +7,9 @@
             if (game == "-1|--|--|--|--|--|--|--|--|--||")
                 return 1;
 
+            if (game == "-2|--|--|--|--|--|--|--|--|--||")
+                return 2;
+
             var firstShot = game.Substring(0, 1);
 
             if (firstShot == "X")
