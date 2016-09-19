@@ -48,5 +48,13 @@ namespace BowlingGameTDDTests
 
             score.Should().Be(2);
         }
+
+        [Test]
+        public void ReturnsScore_GivenPlayerKnocksThreePinsInTheSecondShotOfTheirFirstFrame()
+        {
+            var score = BowlingGameCalculator.Play("-3|--|--|--|--|--|--|--|--|--||");
+
+            score.Should().Be(3);
+        }
     }
 }
