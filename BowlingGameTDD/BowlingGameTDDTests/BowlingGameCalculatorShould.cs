@@ -33,28 +33,14 @@ namespace BowlingGameTDDTests
             score.Should().Be(10);
         }
 
-        [Test]
-        public void ReturnsScore_GivenPlayerKnocksOnePinInTheSecondShotOfTheFirstFrame()
+        [TestCase("-1|--|--|--|--|--|--|--|--|--||", 1)]
+        [TestCase("-2|--|--|--|--|--|--|--|--|--||", 2)]
+        [TestCase("-3|--|--|--|--|--|--|--|--|--||", 3)]
+        public void ReturnsScore_GivenPlayerKnocksPinsInTheSecondShotOfTheirFirstFrameOnly(string game, int expectedScore)
         {
-            var score = BowlingGameCalculator.Play("-1|--|--|--|--|--|--|--|--|--||");
+            var score = BowlingGameCalculator.Play(game);
 
-            score.Should().Be(1);
-        }
-
-        [Test]
-        public void ReturnScore_GivenPlayerKnocksTwoPinsInTheSecondShotOfTheFirstFrame()
-        {
-            var score = BowlingGameCalculator.Play("-2|--|--|--|--|--|--|--|--|--||");
-
-            score.Should().Be(2);
-        }
-
-        [Test]
-        public void ReturnsScore_GivenPlayerKnocksThreePinsInTheSecondShotOfTheirFirstFrame()
-        {
-            var score = BowlingGameCalculator.Play("-3|--|--|--|--|--|--|--|--|--||");
-
-            score.Should().Be(3);
+            score.Should().Be(expectedScore);
         }
     }
 }
