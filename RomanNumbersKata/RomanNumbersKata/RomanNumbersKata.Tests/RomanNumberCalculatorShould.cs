@@ -21,5 +21,13 @@
 
             romanNumber.Should().Be("II");
         }
+
+        [Test]
+        public void ReturnIII_Given3()
+        {
+            string romanNumber = RomanNumberCalculator.Convert(3);
+
+            romanNumber.Should().Be("III");
+        } 
     }
 }
