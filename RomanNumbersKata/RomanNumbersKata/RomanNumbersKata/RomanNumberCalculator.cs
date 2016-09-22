@@ -10,7 +10,8 @@ namespace RomanNumbersKata
                 { 1, "I"},
                 { 4, "IV" },
                 { 5, "V" },
-                { 6, "VI" }
+                { 6, "VI" },
+                { 7, "VII" }
             };
 
         public static string Convert(int number)
