@@ -9,9 +9,7 @@ namespace RomanNumbersKata
             {
                 { 1, "I"},
                 { 4, "IV" },
-                { 5, "V" },
-                { 6, "VI" },
-                { 7, "VII" }
+                { 5, "V" }
             };
 
         public static string Convert(int number)
@@ -19,6 +17,12 @@ namespace RomanNumbersKata
             if (arabicToRomans.ContainsKey(number))
             {
                 return arabicToRomans[number];
+            }
+
+            if (number > 5)
+            {
+                const string romanForFive = "V";
+                return romanForFive + Convert(number - 5);
             }
 
             return arabicToRomans[1] + Convert(number - 1);
