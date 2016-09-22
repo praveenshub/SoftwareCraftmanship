@@ -14,6 +14,11 @@ namespace RomanNumbersKata
                 return "III";
             }
 
+            if (i == 4)
+            {
+                return "IV";
+            }
+
             return "I";
         }
     }
