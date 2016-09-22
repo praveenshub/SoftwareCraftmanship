@@ -12,6 +12,14 @@
             string romanNumber = RomanNumberCalculator.Convert(1);
 
             romanNumber.Should().Be("I");
-        } 
+        }
+
+        [Test]
+        public void ReturnII_Given2()
+        {
+            string romanNumber = RomanNumberCalculator.Convert(2);
+
+            romanNumber.Should().Be("II");
+        }
     }
 }
