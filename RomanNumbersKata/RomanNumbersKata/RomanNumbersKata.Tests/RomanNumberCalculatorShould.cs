@@ -13,6 +13,8 @@
         [TestCase("V", 5)]
         [TestCase("VI", 6)]
         [TestCase("VII", 7)]
+        [TestCase("VIII", 8)]
+        [TestCase("IX", 9)]
         public void ReturnRoman_GivenNumber(string expectedRomanNumber, int number)
         {
             string romanNumber = RomanNumberCalculator.Convert(number);
