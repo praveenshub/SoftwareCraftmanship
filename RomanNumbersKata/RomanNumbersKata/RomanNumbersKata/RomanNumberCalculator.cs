@@ -2,24 +2,11 @@ namespace RomanNumbersKata
 {
     public class RomanNumberCalculator
     {
-        public static string Convert(int i)
+        public static string Convert(int number)
         {
-            if (i == 2)
-            {
-                return "II";
-            }
+            var romanNumbers = new[] { "I", "II", "III", "IV" };
 
-            if (i == 3)
-            {
-                return "III";
-            }
-
-            if (i == 4)
-            {
-                return "IV";
-            }
-
-            return "I";
+            return romanNumbers[number - 1];
         }
     }
 }

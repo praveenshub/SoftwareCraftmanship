@@ -6,10 +6,10 @@
 
     public class RomanNumberCalculatorShould
     {
-        [TestCase("I",1)]
-        [TestCase("II",2)]
-        [TestCase("III",3)]
-        [TestCase("IV",4)]
+        [TestCase("I", 1)]
+        [TestCase("II", 2)]
+        [TestCase("III", 3)]
+        [TestCase("IV", 4)]
         public void ReturnRoman_GivenNumber(string expectedRomanNumber, int number)
         {
             string romanNumber = RomanNumberCalculator.Convert(number);
