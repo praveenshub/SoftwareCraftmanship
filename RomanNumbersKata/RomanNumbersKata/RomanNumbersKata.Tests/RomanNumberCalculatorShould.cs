@@ -6,28 +6,15 @@
 
     public class RomanNumberCalculatorShould
     {
-        [Test]
-        public void ReturnI_Given1()
+        [TestCase("I",1)]
+        [TestCase("II",2)]
+        [TestCase("III",3)]
+        [TestCase("IV",4)]
+        public void ReturnRoman_GivenNumber(string expectedRomanNumber, int number)
         {
-            string romanNumber = RomanNumberCalculator.Convert(1);
+            string romanNumber = RomanNumberCalculator.Convert(number);
 
-            romanNumber.Should().Be("I");
+            romanNumber.Should().Be(expectedRomanNumber);
         }
-
-        [Test]
-        public void ReturnII_Given2()
-        {
-            string romanNumber = RomanNumberCalculator.Convert(2);
-
-            romanNumber.Should().Be("II");
-        }
-
-        [Test]
-        public void ReturnIII_Given3()
-        {
-            string romanNumber = RomanNumberCalculator.Convert(3);
-
-            romanNumber.Should().Be("III");
-        } 
     }
 }
