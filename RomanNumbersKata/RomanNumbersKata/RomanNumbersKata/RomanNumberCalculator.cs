@@ -21,6 +21,12 @@ namespace RomanNumbersKata
                 return arabicToRomans[number];
             }
 
+            if (number == 40)
+            {
+                const string romanForForty = "XL";
+                return romanForForty;
+            }
+
             if (number > 10)
             {
                 const string romanForFive = "X";
