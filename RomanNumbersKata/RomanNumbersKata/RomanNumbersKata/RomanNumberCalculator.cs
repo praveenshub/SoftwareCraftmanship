@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Resources;
+using System.Text;
 
 namespace RomanNumbersKata
 {
@@ -11,35 +13,40 @@ namespace RomanNumbersKata
                 { 4, "IV" },
                 { 5, "V" },
                 { 9, "IX" },
-                { 10, "X" }
+                { 10, "X" },
+                { 40, "XL" }
             };
 
         public static string Convert(int number)
         {
-            if (arabicToRomans.ContainsKey(number))
+            var result = new StringBuilder();
+            var remaining = number;
+
+            remaining = AppendRomanNumerals(remaining, 40, result);
+            remaining = AppendRomanNumerals(remaining, 10, result);
+            remaining = AppendRomanNumerals(remaining, 9, result);
+            remaining = AppendRomanNumerals(remaining, 5, result);
+            remaining = AppendRomanNumerals(remaining, 4, result);
+   
+            for (var i = 0; i < remaining; i++)
             {
-                return arabicToRomans[number];
+                result.Append("I");
             }
 
-            if (number == 40)
+            return result.ToString();
+        }
+
+        private static int AppendRomanNumerals(int number, int key, StringBuilder result)
+        {
+            var roman = number;
+
+            if (roman >= key)
             {
-                const string romanForForty = "XL";
-                return romanForForty;
+                result.Append(arabicToRomans[key]);
+                roman -= key;
             }
 
-            if (number > 10)
-            {
-                const string romanForFive = "X";
-                return romanForFive + Convert(number - 10);
-            }
-
-            if (number > 5)
-            {
-                const string romanForFive = "V";
-                return romanForFive + Convert(number - 5);
-            }
-
-            return arabicToRomans[1] + Convert(number - 1);
+            return roman;
         }
     }
 }
