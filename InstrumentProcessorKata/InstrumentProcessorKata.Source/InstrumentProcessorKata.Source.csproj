@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinishedTaskArgs.cs" />
     <Compile Include="IInstrument.cs" />
     <Compile Include="IInstrumentProcessor.cs" />
     <Compile Include="InstrumentProcessor.cs" />

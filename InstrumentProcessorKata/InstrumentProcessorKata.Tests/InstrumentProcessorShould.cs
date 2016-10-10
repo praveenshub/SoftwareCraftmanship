@@ -9,34 +9,49 @@ namespace InstrumentProcessorKata.Tests
     [TestFixture]
     public class InstrumentProcessorShould
     {
+        private Mock<IInstrument> _instrument = new Mock<IInstrument>();
+        private Mock<ITaskDispatcher> _taskDispatcher = new Mock<ITaskDispatcher>();
+        private IInstrumentProcessor _instrumentProcessor;
+
+        [SetUp]
+        public void Setup()
+        {
+            _instrumentProcessor = new InstrumentProcessor(_instrument.Object, _taskDispatcher.Object);
+        }
+
         [Test]
         public void ExecuteATask_WhenProcessing()
-        {
-            var instrument = new Mock<IInstrument>();
-            var taskDispatcher = new Mock<ITaskDispatcher>();
-            IInstrumentProcessor instrumentProcessor = new InstrumentProcessor(instrument.Object, taskDispatcher.Object);
+        {           
             var task = Guid.NewGuid().ToString();
-            taskDispatcher.Setup(td => td.GetTask()).Returns(task);
+            _taskDispatcher.Setup(td => td.GetTask()).Returns(task);
 
-            instrumentProcessor.Process();
+            _instrumentProcessor.Process();
 
-            instrument.Verify(i => i.Execute(task), Times.Once);
+            _instrument.Verify(i => i.Execute(task), Times.Once);
         }
 
         [Test]
         public void Complain_GivenNullTaskPassed()
         {
-            var instrument = new Mock<IInstrument>();
-            var taskDispatcher = new Mock<ITaskDispatcher>();
-            IInstrumentProcessor instrumentProcessor = new InstrumentProcessor(instrument.Object, taskDispatcher.Object);
             var nullTask = (string)null;
-            taskDispatcher.Setup(td => td.GetTask()).Returns(nullTask);
-            instrument.Setup(i => i.Execute(nullTask)).Throws<ArgumentNullException>();
+            _taskDispatcher.Setup(td => td.GetTask()).Returns(nullTask);
+            _instrument.Setup(i => i.Execute(nullTask)).Throws<ArgumentNullException>();
 
-
-            Action processing = () => instrumentProcessor.Process();
+            Action processing = () => _instrumentProcessor.Process();
 
             processing.ShouldThrow<ArgumentNullException>();
+        }
+
+        [Test]
+        public void FinishTheTask_GivenNotifiedEventFinished()
+        {
+            var task = Guid.NewGuid().ToString();
+            _taskDispatcher.Setup(td => td.GetTask()).Returns(task);
+            _instrument.Setup(i => i.Execute(task)).Raises(i => i.Finished += null, new FinishedTaskArgs(task));
+
+            _instrumentProcessor.Process();
+
+            _taskDispatcher.Verify(td => td.FinishedTask(task), Times.Once);
         }
     }
 }
