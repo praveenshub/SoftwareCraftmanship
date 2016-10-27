@@ -17,17 +17,14 @@ namespace MarsRoverKata.Tests
             startingCoordinates.Should().Be("0 0 N");
         }
 
-        [Test]
-        public void Return_FinalCoordinatesAndHeading_Given_MovedForwardOneGridPoint_AndMaintainTheSameHeading()
+        [TestCase("5 5", "0 0 N", "M", "0 1 N")]
+        public void Return_FinalCoordinatesAndHeading_Given_MovedForwardOneGridPoint_AndMaintainTheSameHeading(string sizeOfThePlateau, string positionOfTheRover, string instructions, string expected)
         {
-            string sizeOfThePlateau = "5 5";
-            string positionOfTheRover = "0 0 N";
-            string instructions = "M";
             MarsRover marsRover = new MarsRover();
 
             string finalCoordinates = marsRover.Move(sizeOfThePlateau, positionOfTheRover, instructions);
 
-            finalCoordinates.Should().Be("0 1 N");
+            finalCoordinates.Should().Be(expected);
         }
 
         [Test]
