@@ -32,6 +32,7 @@ namespace MarsRoverKata.Tests
         [TestCase("5 5", "0 0 E", "M", "1 0 E")]
         [TestCase("5 5", "0 0 E", "MM", "2 0 E")]
         [TestCase("5 5", "1 1 E", "M", "2 1 E")]
+        [TestCase("5 5", "1 1 E", "MM", "3 1 E")]
         public void Return_FinalCoordinatesAndHeading_Given_MovedForwardSomeGridPoints_AndMaintainTheSameHeading(string sizeOfThePlateau, string positionOfTheRover, string instructions, string expected)
         {
             MarsRover marsRover = new MarsRover();

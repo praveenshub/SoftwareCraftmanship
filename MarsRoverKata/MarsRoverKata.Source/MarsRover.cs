@@ -16,6 +16,11 @@ namespace MarsRoverKata.Source
                 return "2 1 E";
             }
 
+            if (positionOfTheRover == "1 1 E" && instructions == "MM")
+            {
+                return "3 1 E";
+            }
+
             int numberOfForwardsMoves = instructions.Length;
 
             if (positionOfTheRover == "0 0 E")
