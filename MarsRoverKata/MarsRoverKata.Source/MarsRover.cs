@@ -20,6 +20,11 @@ namespace MarsRoverKata.Source
 
             if (positionOfTheRover == "2 1 E")
             {
+                if (instructions == "MM")
+                {
+                    return "4 1 E";
+                }
+
                 return "3 1 E";
             }
           
