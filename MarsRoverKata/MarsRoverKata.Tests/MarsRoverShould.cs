@@ -81,5 +81,19 @@ namespace MarsRoverKata.Tests
 
             finalCoordinates.Should().Be("2 0 E");
         }
+
+
+        [Test]
+        public void Return_FinalCoordinatesAndHeading_Given_StartingOneOneMovedEastOneGridPoints_AndMaintainTheSameHeading()
+        {
+            string sizeOfThePlateau = "5 5";
+            string positionOfTheRover = "1 1 E";
+            string instructions = "M";
+            MarsRover marsRover = new MarsRover();
+
+            string finalCoordinates = marsRover.Move(sizeOfThePlateau, positionOfTheRover, instructions);
+
+            finalCoordinates.Should().Be("2 1 E");
+        }
     }
 }
