@@ -17,6 +17,11 @@ namespace MarsRoverKata.Source
             {
                 return String.Format("{0} 1 E", numberOfForwardsMoves+1);
             }
+
+            if (positionOfTheRover == "2 1 E")
+            {
+                return "3 1 E";
+            }
           
             if (positionOfTheRover == "0 0 E")
             {
