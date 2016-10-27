@@ -11,12 +11,14 @@ namespace MarsRoverKata.Source
 
         public string Move(string sizeOfThePlateau, string positionOfTheRover, string instructions)
         {
+            int numberOfForwardsMoves = instructions.Length;
+
             if (positionOfTheRover == "0 0 E")
             {
-                return "1 0 E";
+                return String.Format("{0} 0 E", numberOfForwardsMoves);
             }
 
-            int numberOfForwardsMoves = instructions.Length;
+
             return String.Format("0 {0} N", numberOfForwardsMoves);
         }
     }
