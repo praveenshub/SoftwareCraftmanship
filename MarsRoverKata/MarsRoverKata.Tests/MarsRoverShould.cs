@@ -27,34 +27,18 @@ namespace MarsRoverKata.Tests
             string finalCoordinates = marsRover.Move(sizeOfThePlateau, positionOfTheRover, instructions);
 
             finalCoordinates.Should().Be(expected);
-        }    
+        }
 
-        [Test]
-        public void Return_FinalCoordinatesAndHeading_Given_MovedEastOneGridPoint_AndMaintainTheSameHeading()
+        [TestCase("5 5", "0 0 E", "M", "1 0 E")]
+        [TestCase("5 5", "0 0 E", "MM", "2 0 E")]
+        public void Return_FinalCoordinatesAndHeading_Given_MovedForwardSomeGridPoints_AndMaintainTheSameHeading(string sizeOfThePlateau, string positionOfTheRover, string instructions, string expected)
         {
-            string sizeOfThePlateau = "5 5";
-            string positionOfTheRover = "0 0 E";
-            string instructions = "M";
             MarsRover marsRover = new MarsRover();
 
             string finalCoordinates = marsRover.Move(sizeOfThePlateau, positionOfTheRover, instructions);
 
-            finalCoordinates.Should().Be("1 0 E");
+            finalCoordinates.Should().Be(expected);
         }
-
-        [Test]
-        public void Return_FinalCoordinatesAndHeading_Given_MovedEastTwoGridPoints_AndMaintainTheSameHeading()
-        {
-            string sizeOfThePlateau = "5 5";
-            string positionOfTheRover = "0 0 E";
-            string instructions = "MM";
-            MarsRover marsRover = new MarsRover();
-
-            string finalCoordinates = marsRover.Move(sizeOfThePlateau, positionOfTheRover, instructions);
-
-            finalCoordinates.Should().Be("2 0 E");
-        }
-
 
         [Test]
         public void Return_FinalCoordinatesAndHeading_Given_StartingOneOneMovedEastOneGridPoints_AndMaintainTheSameHeading()
