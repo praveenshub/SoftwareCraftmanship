@@ -32,7 +32,15 @@
 
                 if (instruction == 'R')
                 {
-                    direction = "E";
+                    switch (direction)
+                    {
+                        case "N":
+                            direction = "E";
+                            break;
+                        case "E":
+                            direction = "S";
+                            break;
+                    }
                 }
                 
                 if (instruction == 'L')
