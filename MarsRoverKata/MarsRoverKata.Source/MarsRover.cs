@@ -36,6 +36,13 @@
                 return string.Format("{0} {1} E", x + numberOfForwardsMoves, y);
             }
 
+            foreach (var instruction in instructions)
+            {
+                if (instruction == 'M')
+                {
+                }
+            }
+
             return string.Format("0 {0} N", numberOfForwardsMoves);
         }
     }
