@@ -40,10 +40,16 @@
             {
                 if (instruction == 'M')
                 {
+                    y++;
+                }
+
+                if (instruction == 'R')
+                {
+                    direction = "E";
                 }
             }
 
-            return string.Format("0 {0} N", numberOfForwardsMoves);
+            return string.Format("{0} {1} {2}", x, y, direction);
         }
     }
 }
