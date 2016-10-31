@@ -30,6 +30,7 @@
         [TestCase("5 5", "2 1 E", "M", "3 1 E")]
         [TestCase("5 5", "2 1 E", "MM", "4 1 E")]
         [TestCase("5 5", "1 1 W", "M", "0 1 W")]
+        [TestCase("5 5", "2 1 W", "M", "1 1 W")]
         public void Return_FinalCoordinatesAndHeading_Given_MovedForwardOneGridPoint_AndMaintainTheSameHeading(string sizeOfThePlateau, string positionOfTheRover, string instructions, string expected)
         {
             MarsRover marsRover = new MarsRover();
