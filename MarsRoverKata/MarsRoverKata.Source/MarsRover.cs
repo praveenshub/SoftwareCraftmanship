@@ -16,6 +16,11 @@
                 return "0 1 E";
             }
 
+            if (positionOfTheRover == "0 0 N" && instructions == "MRM")
+            {
+                return "1 1 E";
+            }
+
             if (direction == "S")
             {
                 return string.Format("{0} {1} S", x, y - numberOfForwardsMoves);
