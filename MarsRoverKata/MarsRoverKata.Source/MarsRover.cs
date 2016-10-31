@@ -4,8 +4,6 @@
     {
         public string Move(string sizeOfThePlateau, string positionOfTheRover, string instructions)
         {
-            int numberOfForwardsMoves = instructions.Length;
-
             var parameters = positionOfTheRover.Split(' ');
             var x = int.Parse(parameters[0]);
             var y = int.Parse(parameters[1]);
@@ -15,24 +13,20 @@
             {
                 if (instruction == 'M')
                 {
-                    if (direction == "N")
+                    switch (direction)
                     {
-                        y++;    
-                    }
-
-                    if (direction == "E")
-                    {
-                        x++;
-                    }
-
-                    if (direction == "W")
-                    {
-                        x--;
-                    }
-                    
-                    if (direction == "S")
-                    {
-                        y--;
+                        case "N":
+                            y++;
+                            break;
+                        case "E":
+                            x++;
+                            break;
+                        case "W":
+                            x--;
+                            break;
+                        case "S":
+                            y--;
+                            break;
                     }
                 }
 
