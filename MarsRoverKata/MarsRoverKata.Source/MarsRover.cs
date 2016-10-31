@@ -40,6 +40,11 @@
                 {
                     direction = "E";
                 }
+                
+                if (instruction == 'L')
+                {
+                    direction = "W";
+                }
             }
 
             return string.Format("{0} {1} {2}", x, y, direction);
