@@ -21,11 +21,11 @@
                         case "E":
                             x++;
                             break;
-                        case "W":
-                            x--;
-                            break;
                         case "S":
                             y--;
+                            break;
+                        case "W":
+                            x--;
                             break;
                     }
                 }
@@ -40,6 +40,12 @@
                         case "E":
                             direction = "S";
                             break;
+                        case "S":
+                            direction = "W";
+                            break;
+                        case "W":
+                            direction = "N";
+                            break;
                     }
                 }
                 
@@ -52,6 +58,12 @@
                             break;
                         case "W":
                             direction = "S";
+                            break;
+                        case "S":
+                            direction = "E";
+                            break;
+                        case "E":
+                            direction = "N";
                             break;
                     }
                 }
