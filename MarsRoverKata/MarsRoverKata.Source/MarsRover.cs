@@ -11,14 +11,9 @@
             var y = int.Parse(parameters[1]);
             var direction = parameters[2];
 
-            if (positionOfTheRover == "3 1 S")
+            if (direction == "S")
             {
-                return "3 0 S";
-            }
-
-            if (positionOfTheRover == "3 2 S")
-            {
-                return "3 1 S";
+                return string.Format("{0} {1} S", x, y - numberOfForwardsMoves);
             }
 
             if (direction == "W")
