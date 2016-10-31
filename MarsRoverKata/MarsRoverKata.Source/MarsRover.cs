@@ -13,19 +13,13 @@ namespace MarsRoverKata.Source
         {
             int numberOfForwardsMoves = instructions.Length;
 
-            if (positionOfTheRover == "1 1 E")
-            {
-                return String.Format("{0} 1 E", numberOfForwardsMoves+1);
-            }
+            var direction = positionOfTheRover.Split(' ')[2];
+            var xPos = int.Parse(positionOfTheRover.Split(' ')[0]);
+            var yPos = int.Parse(positionOfTheRover.Split(' ')[1]);
 
-            if (positionOfTheRover == "2 1 E")
+            if (direction == "E")
             {
-                return String.Format("{0} 1 E", numberOfForwardsMoves + 2);
-            }
-          
-            if (positionOfTheRover == "0 0 E")
-            {
-                return String.Format("{0} 0 E", numberOfForwardsMoves);
+                return String.Format("{0} {1} E", xPos + numberOfForwardsMoves, yPos);
             }
 
             return String.Format("0 {0} N", numberOfForwardsMoves);
