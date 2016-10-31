@@ -43,7 +43,10 @@
                 
                 if (instruction == 'L')
                 {
-                    direction = "W";
+                    if (direction == "N")
+                    {
+                        direction = "W";    
+                    }
                 }
             }
 
