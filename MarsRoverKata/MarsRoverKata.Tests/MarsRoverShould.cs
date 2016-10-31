@@ -1,9 +1,11 @@
-﻿using FluentAssertions;
-using MarsRoverKata.Source;
-using NUnit.Framework;
-
-namespace MarsRoverKata.Tests
+﻿namespace MarsRoverKata.Tests
 {
+    using FluentAssertions;
+
+    using MarsRoverKata.Source;
+
+    using NUnit.Framework;
+
     [TestFixture]
     public class MarsRoverShould
     {
