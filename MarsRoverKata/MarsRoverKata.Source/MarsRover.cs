@@ -11,16 +11,6 @@
             var y = int.Parse(parameters[1]);
             var direction = parameters[2];
 
-            if (positionOfTheRover == "0 0 N" && instructions == "MR")
-            {
-                return "0 1 E";
-            }
-
-            if (positionOfTheRover == "0 0 N" && instructions == "MRM")
-            {
-                return "1 1 E";
-            }
-
             if (direction == "S")
             {
                 return string.Format("{0} {1} S", x, y - numberOfForwardsMoves);
@@ -40,7 +30,15 @@
             {
                 if (instruction == 'M')
                 {
-                    y++;
+                    if (direction == "N")
+                    {
+                        y++;    
+                    }
+
+                    if (direction == "E")
+                    {
+                        x++;
+                    }
                 }
 
                 if (instruction == 'R')
