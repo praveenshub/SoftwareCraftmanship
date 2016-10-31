@@ -43,15 +43,15 @@
                 
                 if (instruction == 'L')
                 {
-                    if (direction == "W")
+                    switch (direction)
                     {
-                        direction = "S";
+                        case "N":
+                            direction = "W";
+                            break;
+                        case "W":
+                            direction = "S";
+                            break;
                     }
-
-                    if (direction == "N")
-                    {
-                        direction = "W";
-                    } 
                 }
             }
 
