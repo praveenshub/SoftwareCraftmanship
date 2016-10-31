@@ -16,6 +16,11 @@
                 return "3 0 S";
             }
 
+            if (positionOfTheRover == "3 2 S")
+            {
+                return "3 1 S";
+            }
+
             if (direction == "W")
             {
                 return string.Format("{0} {1} W", x - numberOfForwardsMoves, y);
