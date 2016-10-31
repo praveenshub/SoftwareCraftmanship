@@ -19,6 +19,11 @@
             if (positionOfTheRover == "2 1 W")
             {
                 return "1 1 W";
+            }  
+          
+            if (positionOfTheRover == "3 1 W")
+            {
+                return "2 1 W";
             }
 
             if (direction == "E")
