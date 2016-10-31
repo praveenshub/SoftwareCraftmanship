@@ -39,6 +39,7 @@
         [TestCase("0 0 N", "MR", "0 1 E")]
         [TestCase("0 0 N", "MRM", "1 1 E")]
         [TestCase("1 0 N", "ML", "1 1 W")]
+        [TestCase("1 0 N", "MLL", "1 1 S")]
         public void Return_FinalCoordinatesAndHeading_Given_MovedForwardSomeGridPoints_AndMaintainTheSameHeading(string positionOfTheRover, string instructions, string expected)
         {
             MarsRover marsRover = new MarsRover();
