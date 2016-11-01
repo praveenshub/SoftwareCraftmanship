@@ -4,67 +4,70 @@
     {
         public string Move(string sizeOfThePlateau, string positionOfTheRover, string instructions)
         {
-            var parameters = positionOfTheRover.Split(' ');
-            var x = int.Parse(parameters[0]);
-            var y = int.Parse(parameters[1]);
-            var direction = parameters[2];
+            var roverStartingPosition = positionOfTheRover.Split(' ');
+            var x = int.Parse(roverStartingPosition[0]);
+            var y = int.Parse(roverStartingPosition[1]);
+            var direction = roverStartingPosition[2];
 
             foreach (var instruction in instructions)
             {
                 if (instruction == 'M')
                 {
-                    switch (direction)
+                    if (direction == "N")
                     {
-                        case "N":
-                            y++;
-                            break;
-                        case "E":
-                            x++;
-                            break;
-                        case "S":
-                            y--;
-                            break;
-                        case "W":
-                            x--;
-                            break;
+                        y++;
+                    }
+                    else if (direction == "E")
+                    {
+                        x++;
+                    }
+                    else if (direction == "S")
+                    {
+                        y--;
+                    }
+                    else if (direction == "W")
+                    {
+                        x--;
                     }
                 }
 
                 if (instruction == 'R')
                 {
-                    switch (direction)
+                    if (direction == "N")
                     {
-                        case "N":
-                            direction = "E";
-                            break;
-                        case "E":
-                            direction = "S";
-                            break;
-                        case "S":
-                            direction = "W";
-                            break;
-                        case "W":
-                            direction = "N";
-                            break;
+                        direction = "E";
+                    }
+                    else if (direction == "E")
+                    {
+                        direction = "S";
+                    }
+                    else if (direction == "S")
+                    {
+                        direction = "W";
+                    }
+                    else if (direction == "W")
+                    {
+                        direction = "N";
                     }
                 }
                 
                 if (instruction == 'L')
                 {
-                    switch (direction)
+                    if (direction == "N")
                     {
-                        case "N":
-                            direction = "W";
-                            break;
-                        case "W":
-                            direction = "S";
-                            break;
-                        case "S":
-                            direction = "E";
-                            break;
-                        case "E":
-                            direction = "N";
-                            break;
+                        direction = "W";
+                    }
+                    else if (direction == "E")
+                    {
+                        direction = "N";
+                    }
+                    else if (direction == "S")
+                    {
+                        direction = "E";
+                    }
+                    else if (direction == "W")
+                    {
+                        direction = "S";
                     }
                 }
             }
