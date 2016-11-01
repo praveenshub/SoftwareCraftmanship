@@ -36,11 +36,11 @@
         [TestCase("0 0 N", "MRRM", "0 0 S")]
         [TestCase("0 0 N", "MRRMR", "0 0 W")]
         [TestCase("0 0 N", "MRRMRR", "0 0 N")]        
-        public void Return_FinalCoordinatesAndHeading_Given_MovedForwardSomeGridPoints_AndMaintainTheSameHeading(string positionOfTheRover, string instructions, string expected)
+        public void Return_FinalCoordinatesAndHeading_Given_Instructions(string positionOfTheRover, string instructions, string expected)
         {
-            MarsRover marsRover = new MarsRover();
+            var marsRover = new MarsRover();
 
-            string finalCoordinates = marsRover.Move("5 5", positionOfTheRover, instructions);
+            var finalCoordinates = marsRover.Move("5 5", positionOfTheRover, instructions);
 
             finalCoordinates.Should().Be(expected);
         }

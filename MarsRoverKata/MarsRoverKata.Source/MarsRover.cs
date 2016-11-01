@@ -4,75 +4,75 @@
     {
         public string Move(string sizeOfThePlateau, string positionOfTheRover, string instructions)
         {
-            var roverStartingPosition = positionOfTheRover.Split(' ');
-            var x = int.Parse(roverStartingPosition[0]);
-            var y = int.Parse(roverStartingPosition[1]);
-            var direction = roverStartingPosition[2];
+            var roverPosition = positionOfTheRover.Split(' ');
+            var roverX = int.Parse(roverPosition[0]);
+            var roverY = int.Parse(roverPosition[1]);
+            var roverDirection = roverPosition[2];
 
             foreach (var instruction in instructions)
             {
                 if (instruction == 'M')
                 {
-                    if (direction == "N")
+                    if (roverDirection == "N")
                     {
-                        y++;
+                        roverY++;
                     }
-                    else if (direction == "E")
+                    else if (roverDirection == "E")
                     {
-                        x++;
+                        roverX++;
                     }
-                    else if (direction == "S")
+                    else if (roverDirection == "S")
                     {
-                        y--;
+                        roverY--;
                     }
-                    else if (direction == "W")
+                    else if (roverDirection == "W")
                     {
-                        x--;
+                        roverX--;
                     }
                 }
 
                 if (instruction == 'R')
                 {
-                    if (direction == "N")
+                    if (roverDirection == "N")
                     {
-                        direction = "E";
+                        roverDirection = "E";
                     }
-                    else if (direction == "E")
+                    else if (roverDirection == "E")
                     {
-                        direction = "S";
+                        roverDirection = "S";
                     }
-                    else if (direction == "S")
+                    else if (roverDirection == "S")
                     {
-                        direction = "W";
+                        roverDirection = "W";
                     }
-                    else if (direction == "W")
+                    else if (roverDirection == "W")
                     {
-                        direction = "N";
+                        roverDirection = "N";
                     }
                 }
                 
                 if (instruction == 'L')
                 {
-                    if (direction == "N")
+                    if (roverDirection == "N")
                     {
-                        direction = "W";
+                        roverDirection = "W";
                     }
-                    else if (direction == "E")
+                    else if (roverDirection == "E")
                     {
-                        direction = "N";
+                        roverDirection = "N";
                     }
-                    else if (direction == "S")
+                    else if (roverDirection == "S")
                     {
-                        direction = "E";
+                        roverDirection = "E";
                     }
-                    else if (direction == "W")
+                    else if (roverDirection == "W")
                     {
-                        direction = "S";
+                        roverDirection = "S";
                     }
                 }
             }
 
-            return string.Format("{0} {1} {2}", x, y, direction);
+            return string.Format("{0} {1} {2}", roverX, roverY, roverDirection);
         }
     }
 }
